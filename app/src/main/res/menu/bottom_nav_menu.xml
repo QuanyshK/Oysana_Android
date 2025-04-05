@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/mainFragment"
+        android:title="Басты бет"
+        android:icon="@drawable/home" />
+
+    <item
+        android:id="@+id/myCoursesFragment"
+        android:title="Курстарым"
+        android:icon="@drawable/courses" />
+
+    <item
+        android:id="@+id/chatBotFragment"
+        android:title="Чат-бот"
+        android:icon="@drawable/chatbot"/>
+
+    <item
+        android:id="@+id/profileFragment"
+        android:title="Профиль"
+        android:icon="@drawable/profileaccount" />
+
+</menu>

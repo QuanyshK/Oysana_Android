@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@+id/mainFragment">
+    <action
+        android:id="@+id/action_global_loginFragment"
+        app:destination="@id/loginFragment"
+        app:launchSingleTop="true" />
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.example.oysana_android.ui.fragment.MainFragment"
+        android:label="Басты бет">
+        <action
+            android:id="@+id/action_mainFragment_to_trialCourseDetailsFragment"
+            app:destination="@+id/trialCourseDetailsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/trialCourseDetailsFragment"
+        android:name="com.example.oysana_android.ui.fragment.TrialCourseDetailsFragment"
+        android:label="Триал курсының детальдары" >
+        <action
+            android:id="@+id/action_trialCourseDetailsFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/myCoursesFragment"
+        android:name="com.example.oysana_android.ui.fragment.MyCoursesFragment"
+        android:label="Менің курстарым">
+
+        <action
+            android:id="@+id/action_myCoursesFragment_to_courseDetailsFragment"
+            app:destination="@+id/courseDetailsFragment" />
+        <argument
+            android:name="courseId"
+            app:argType="integer" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/courseDetailsFragment"
+        android:name="com.example.oysana_android.ui.fragment.CourseDetailsFragment"
+        android:label="Курс детальдары">
+
+        <action
+            android:id="@+id/action_courseDetailsFragment_to_courseTopicFragment"
+            app:destination="@+id/courseTopicFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/courseTopicFragment"
+        android:name="com.example.oysana_android.ui.fragment.CourseTopicFragment"
+        android:label="Курс тақырыбы" >
+        <action
+            android:id="@+id/action_courseTopicFragment_to_testFragment"
+            app:destination="@id/testFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/testFragment"
+        android:name="com.example.oysana_android.ui.fragment.TestFragment"
+        android:label="Тест"
+        >
+        <action
+            android:id="@+id/action_testFragment_to_courseTopicFragment"
+            app:destination="@id/courseTopicFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/chatBotFragment"
+        android:name="com.example.oysana_android.ui.fragment.ChatBotFragment"
+        android:label="Чат-бот">
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.oysana_android.ui.fragment.LoginFragment"
+        android:label="Кіру">
+        <action
+            android:id="@+id/action_loginFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.oysana_android.ui.fragment.ProfileFragment"
+        android:label="Профиль">
+        <action
+        android:id="@+id/action_profileFragment_to_loginFragment"
+        app:destination="@id/loginFragment" />
+    </fragment>
+
+</navigation>
