@@ -66,4 +66,5 @@ dependencies {
     implementation(libs.glide)
     kapt(libs.compiler)
 
+
 }

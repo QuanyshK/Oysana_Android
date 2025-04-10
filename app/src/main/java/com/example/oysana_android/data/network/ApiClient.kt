@@ -13,10 +13,6 @@ object ApiClient {
 
     private var authManager: AuthManager? = null
 
-    fun initAuthManager(manager: AuthManager) {
-        this.authManager = manager
-    }
-
     fun create(authToken: String? = null): ApiService {
         val clientBuilder = OkHttpClient.Builder()
 
@@ -35,6 +31,7 @@ object ApiClient {
             val response = chain.proceed(requestWithAuth)
 
             if (response.code == 401 && authManager?.getRefreshToken() != null) {
+                response.close()
                 val refreshed = refreshToken()
                 if (refreshed) {
                     val newAccessToken = authManager?.getAccessToken()
@@ -72,8 +69,14 @@ object ApiClient {
             val response = service.refreshTokenSync(RefreshRequest(refreshToken)).execute()
 
             if (response.isSuccessful && response.body() != null) {
-                val tokens = response.body()!!
-                authManager?.saveTokens(tokens.access, tokens.refresh)
+                val newAccessToken = response.body()!!.access
+
+                //Обновляем только access-токен, refresh остаётся прежним
+                authManager?.saveTokens(
+                    access = newAccessToken,
+                    refresh = refreshToken
+                )
+
                 true
             } else {
                 false

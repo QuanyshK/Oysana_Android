@@ -14,11 +14,17 @@ class ChatBotFragment : Fragment(R.layout.fragment_chat_bot) {
         super.onViewCreated(view, savedInstanceState)
 
         val authManager = AuthManager(requireContext())
-        if (!authManager.isLoggedIn()) {
+        if (authManager.isLoggedIn()) {
+            // Показываем страницу чата (или вызываем загрузку данных)
+            loadChatScreen()
+        } else {
+            // Переход на страницу логина
             findNavController().navigate(R.id.action_global_loginFragment)
-            return
         }
 
         // Здесь твоя логика чата
+    }
+    private fun loadChatScreen() {
+        // Тут может быть инициализация UI, загрузка истории, подключение к сокету и т.п.
     }
 }
