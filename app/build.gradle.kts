@@ -65,6 +65,7 @@ dependencies {
     implementation(libs.okhttp3.logging.interceptor)
     implementation(libs.glide)
     kapt(libs.compiler)
+    implementation(libs.markwon.core)
 
 
 }

@@ -66,7 +66,7 @@ class CourseDetailsFragment : Fragment(R.layout.fragment_course_details) {
         lifecycleScope.launch {
             try {
                 val token = authManager.getAccessToken()
-                val response = ApiClient.create(token).getCourseTopics(courseId)
+                val response = ApiClient.create().getCourseTopics(courseId)
                 if (response.isSuccessful) {
                     response.body()?.let { topicList ->
                         topicAdapter.submitList(topicList)

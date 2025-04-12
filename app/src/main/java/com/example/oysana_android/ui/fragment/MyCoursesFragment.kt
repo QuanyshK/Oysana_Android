@@ -31,8 +31,7 @@ class MyCoursesFragment : Fragment(R.layout.fragment_my_courses) {
 
         authManager = AuthManager(requireContext())
         val token = authManager.getAccessToken()
-        apiService = ApiClient.create(token)
-
+        apiService = ApiClient.create()
         setupRecyclerView()
 
         if (authManager.isLoggedIn()) {

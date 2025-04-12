@@ -39,7 +39,7 @@ class CourseTopicFragment : Fragment(R.layout.fragment_course_topic) {
             return
         }
 
-        apiService = ApiClient.create(token)
+        apiService = ApiClient.create()
 
         topicId = arguments?.getInt("topicId", -1) ?: -1
         if (topicId != -1) {

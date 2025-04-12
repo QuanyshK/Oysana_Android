@@ -56,7 +56,7 @@ class TestFragment : Fragment(R.layout.fragment_test) {
             return
         }
 
-        apiService = ApiClient.create(token)
+        apiService = ApiClient.create()
 
         topicId = arguments?.getInt("topicId", -1) ?: -1
         if (topicId == -1) {

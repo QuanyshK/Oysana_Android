@@ -63,7 +63,13 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
                 if (response.isSuccessful && response.body() != null) {
                     val tokenResponse = response.body()!!
+
                     authManager.saveTokens(tokenResponse.access, tokenResponse.refresh)
+
+                    authManager.saveUsername(username)
+
+                    createUserPost(username)
+
                     Toast.makeText(requireContext(), "Қош келдіңіз, $username!", Toast.LENGTH_SHORT).show()
                     findNavController().navigate(R.id.action_loginFragment_to_profileFragment)
                 } else {
@@ -84,6 +90,23 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
             else -> Toast.makeText(requireContext(), "Қате: $code", Toast.LENGTH_SHORT).show()
         }
     }
+    private fun createUserPost(username: String) {
+        CoroutineScope(Dispatchers.IO).launch {
+            try {
+                val aiService = AIClient.create(requireContext())
+                val response = aiService.createUser(mapOf("username" to username))
+
+                if (response.isSuccessful) {
+                    println("✅ Юзер создан или уже существует")
+                } else {
+                    println("❌ Ошибка при создании: ${response.code()}")
+                }
+            } catch (e: Exception) {
+                println("❌ Ошибка соединения: ${e.localizedMessage}")
+            }
+        }
+    }
+
 
     override fun onDestroyView() {
         super.onDestroyView()

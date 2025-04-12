@@ -27,8 +27,9 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         _binding = FragmentProfileBinding.bind(view)
         authManager = AuthManager(requireContext())
-        val token = authManager.getAccessToken()
-        apiService = ApiClient.create(token)
+        ApiClient.init(requireContext())
+
+        apiService = ApiClient.create()
 
 
         binding.btnLogoutSmall.setOnClickListener {
@@ -46,7 +47,7 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
             startActivity(Intent(Intent.ACTION_VIEW, uri))
         }
 
-        binding.tvAppVersion.text = "⭐ Version ${BuildConfig.VERSION_NAME}"
+        binding.tvAppVersion.text = "⭐ Version 1.0.0"
         if (authManager.isLoggedIn()) {
             loadUserInfo()
         } else {
