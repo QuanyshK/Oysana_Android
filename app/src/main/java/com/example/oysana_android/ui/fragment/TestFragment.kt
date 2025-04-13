@@ -135,7 +135,7 @@ class TestFragment : Fragment(R.layout.fragment_test) {
                 setOnClickListener {
                     currentIndex = index
                     displayQuestion()
-                    setupQuestionNav() // обновим отображение
+                    setupQuestionNav()
                 }
             }
 

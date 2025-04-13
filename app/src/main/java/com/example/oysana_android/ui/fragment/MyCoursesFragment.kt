@@ -62,9 +62,7 @@ class MyCoursesFragment : Fragment(R.layout.fragment_my_courses) {
                     if (!courses.isNullOrEmpty()) {
                         adapter.submitList(courses)
                     }
-                } else {
-                    Toast.makeText(requireContext(), "Қате: ${response.code()}", Toast.LENGTH_SHORT).show()
-                }
+                } else { }
             } catch (e: Exception) {
                 Toast.makeText(requireContext(), "Интернетке қосылыңыз", Toast.LENGTH_SHORT).show()
             }

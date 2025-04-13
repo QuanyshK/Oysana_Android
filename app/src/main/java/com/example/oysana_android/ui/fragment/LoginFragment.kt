@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import com.example.oysana_android.R
 import com.example.oysana_android.data.database.AuthManager
@@ -71,8 +72,14 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                     createUserPost(username)
 
                     Toast.makeText(requireContext(), "Қош келдіңіз, $username!", Toast.LENGTH_SHORT).show()
-                    findNavController().navigate(R.id.action_loginFragment_to_profileFragment)
-                } else {
+                    findNavController().navigate(
+                        R.id.action_loginFragment_to_profileFragment,
+                        null,
+                        NavOptions.Builder()
+                            .setPopUpTo(R.id.nav_graph, true)  // Очистить стек
+                            .setLaunchSingleTop(true)
+                            .build()
+                    )                } else {
                     handleLoginError(response.code())
                 }
             } catch (e: HttpException) {

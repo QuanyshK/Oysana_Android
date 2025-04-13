@@ -47,7 +47,7 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
             startActivity(Intent(Intent.ACTION_VIEW, uri))
         }
 
-        binding.tvAppVersion.text = "⭐ Version 1.0.0"
+        binding.tvAppVersion.text = "⭐ Version 1.0.1"
         if (authManager.isLoggedIn()) {
             loadUserInfo()
         } else {
@@ -66,8 +66,6 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
                 }
             } catch (e: HttpException) {
                 showToast("Сервер қатесі")
-            } catch (e: Exception) {
-                showToast("Интернетке қосылыңыз")
             }
         }
     }

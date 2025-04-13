@@ -5,6 +5,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.oysana_android.R
 import com.example.oysana_android.data.database.AuthManager
@@ -32,9 +33,8 @@ class ChatBotFragment : Fragment(R.layout.fragment_chat_bot) {
 
         authManager = AuthManager(requireContext())
 
-        val username = authManager.getUsername()
-        if (username.isNullOrEmpty()) {
-            showError("Пайдаланушы табылмады. Қайта кіріңіз.")
+        if (!authManager.isLoggedIn()) {
+            findNavController().navigate(R.id.action_global_loginFragment)
             return
         }
 
@@ -147,9 +147,9 @@ class ChatBotFragment : Fragment(R.layout.fragment_chat_bot) {
 
 
     private fun scrollToBottom() {
-        binding.recyclerViewChat.post {
+        binding.recyclerViewChat.postDelayed({
             binding.recyclerViewChat.scrollToPosition(messages.size - 1)
-        }
+        }, 100)
     }
 
     private fun showError(message: String) {

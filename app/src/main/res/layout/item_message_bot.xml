@@ -23,6 +23,7 @@
             android:text="🤖 Сәлем, мен ботпын"
             android:textColor="@color/black"
             android:textSize="16sp"
+            android:textIsSelectable="true"
             android:autoLink="web"/>
     </LinearLayout>
 </androidx.cardview.widget.CardView>

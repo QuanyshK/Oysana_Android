@@ -68,7 +68,7 @@ class CourseTopicFragment : Fragment(R.layout.fragment_course_topic) {
                     val topic = response.body()
                     topic?.let {
                         setupYouTube(it.videoUrl)
-                        val testResult = it.userResult!!.score.toString()
+                        val testResult = it.userResult?.score
                         binding.tvTestResult.text =
                             " Cіздің балыңыз: $testResult"
                     }
