@@ -53,6 +53,10 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
             val uri = Uri.parse(getString(R.string.web_home))
             startActivity(Intent(Intent.ACTION_VIEW, uri))
         }
+        binding.btnSupport.setOnClickListener {
+            val uri = Uri.parse(getString(R.string.support))
+            startActivity(Intent(Intent.ACTION_VIEW, uri))
+        }
     }
 
     private fun loginUser(username: String, password: String) {

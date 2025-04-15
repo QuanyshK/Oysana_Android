@@ -68,9 +68,6 @@ class CourseTopicFragment : Fragment(R.layout.fragment_course_topic) {
                     val topic = response.body()
                     topic?.let {
                         setupYouTube(it.videoUrl)
-                        val testResult = it.userResult?.score
-                        binding.tvTestResult.text =
-                            " Cіздің балыңыз: $testResult"
                     }
                 } else {
                     Toast.makeText(requireContext(), "Қате: ${response.code()}", Toast.LENGTH_SHORT).show()

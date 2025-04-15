@@ -41,15 +41,7 @@
                 android:id="@+id/youtube_player_view"
                 android:layout_width="match_parent"
                 android:layout_height="200dp" />
-            <!-- Если нет YouTube API, можем заменить на WebView, например:
-            <WebView
-                android:id="@+id/webViewVideo"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-            -->
         </FrameLayout>
-
-        <!-- Кнопка/Ссылка на тест (Next/Back) -->
         <!-- Кнопка перехода к тесту (Next) -->
         <Button
             android:id="@+id/btnStartTest"
@@ -57,16 +49,6 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="Тестті бастау" />
-
-        <!-- Отобразить результат теста, если уже пройден -->
-        <TextView
-            android:id="@+id/tvTestResult"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="Сіздің тест балыңыз..." />
-
-        <!-- (Опционально) Кнопка назад -->
 
     </LinearLayout>
 </LinearLayout>

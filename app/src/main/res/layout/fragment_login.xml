@@ -50,6 +50,18 @@
         android:layout_height="wrap_content"
         android:text="Кіру"
         android:layout_marginTop="16dp"/>
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnSupport"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/edittext_background"
+        android:text="Қолдау қызметі"
+        android:textColor="@android:color/black"
+        app:backgroundTint="@null"
+        app:cornerRadius="100dp"
+        app:iconPadding="8dp"
+        app:iconTint="@android:color/white" />
 
     <LinearLayout
         android:layout_width="wrap_content"
