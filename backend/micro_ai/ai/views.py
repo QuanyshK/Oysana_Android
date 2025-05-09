@@ -36,7 +36,7 @@ class ChatMessageCreateView(APIView):
         if not user:
             return Response({"error": "Missing X-Username header"}, status=400)
 
-        if ChatMessage.objects.filter(user=user, created_at__date=now().date()).count() >= 20:
+        if ChatMessage.objects.filter(user=user, created_at__date=now().date()).count() >= 50:
             return Response({"error": "Daily limit (20) reached."}, status=429)
 
         serializer = ChatCreateSerializer(data=request.data)

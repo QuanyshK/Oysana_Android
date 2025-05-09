@@ -50,8 +50,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         }
 
         binding.btnBuySubscriptionLogin.setOnClickListener {
-            val uri = Uri.parse(getString(R.string.web_home))
-            startActivity(Intent(Intent.ACTION_VIEW, uri))
+            findNavController().navigate(R.id.registrationFragment)
         }
         binding.btnSupport.setOnClickListener {
             val uri = Uri.parse(getString(R.string.support))

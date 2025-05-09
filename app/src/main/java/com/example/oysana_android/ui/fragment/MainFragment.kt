@@ -34,8 +34,7 @@ class MainFragment : Fragment(R.layout.fragment_main) {
         loadCourses()
 
         binding.btnBuySubscription.setOnClickListener {
-            val uri = Uri.parse(getString(R.string.web_home))
-            startActivity(Intent(Intent.ACTION_VIEW, uri))
+            findNavController().navigate(R.id.registrationFragment)
         }
     }
 

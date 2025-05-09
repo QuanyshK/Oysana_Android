@@ -93,5 +93,10 @@
         android:id="@+id/action_profileFragment_to_loginFragment"
         app:destination="@id/loginFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/registrationFragment"
+        android:name="com.example.oysana_android.ui.fragment.RegistrationFragment"
+        android:label="RegistrationFragment" />
+
 
 </navigation>

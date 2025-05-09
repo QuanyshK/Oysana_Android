@@ -39,6 +39,9 @@ interface ApiService {
 
     @POST("api/token/refresh/")
     fun refreshTokenSync(@Body request: RefreshRequest): retrofit2.Call<TokenResponse>
+    @POST("api/courses/register/")
+    suspend fun registerLead(@Body body: RegistrationRequest): Response<Any>
+
 
 }
 

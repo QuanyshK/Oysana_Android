@@ -47,7 +47,7 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
             startActivity(Intent(Intent.ACTION_VIEW, uri))
         }
 
-        binding.tvAppVersion.text = "⭐ Version 1.0.1"
+        binding.tvAppVersion.text = "⭐ Version ${BuildConfig.VERSION_NAME}"
         if (authManager.isLoggedIn()) {
             loadUserInfo()
         } else {
