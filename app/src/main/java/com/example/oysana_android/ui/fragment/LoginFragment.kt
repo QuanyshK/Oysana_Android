@@ -38,7 +38,11 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
             val password = binding.etPassword.text.toString().trim()
 
             if (username.isEmpty() || password.isEmpty()) {
-                Toast.makeText(requireContext(), "Логин және құпиясөзді толтырыңыз", Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    requireContext(),
+                    "Логин және құпиясөзді толтырыңыз",
+                    Toast.LENGTH_SHORT
+                ).show()
             } else {
                 loginUser(username, password)
             }
@@ -74,7 +78,8 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
                     createUserPost(username)
 
-                    Toast.makeText(requireContext(), "Қош келдіңіз, $username!", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), "Қош келдіңіз, $username!", Toast.LENGTH_SHORT)
+                        .show()
                     findNavController().navigate(
                         R.id.action_loginFragment_to_profileFragment,
                         null,
@@ -82,7 +87,8 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                             .setPopUpTo(R.id.nav_graph, true)  // Очистить стек
                             .setLaunchSingleTop(true)
                             .build()
-                    )                } else {
+                    )
+                } else {
                     handleLoginError(response.code())
                 }
             } catch (e: HttpException) {
@@ -95,11 +101,19 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
     private fun handleLoginError(code: Int) {
         when (code) {
-            400, 401 -> Toast.makeText(requireContext(), "Логин немесе құпия сөз жарамсыз", Toast.LENGTH_SHORT).show()
-            404 -> Toast.makeText(requireContext(), "Сервер табылмады (404)", Toast.LENGTH_SHORT).show()
+            400, 401 -> Toast.makeText(
+                requireContext(),
+                "Логин немесе құпия сөз жарамсыз",
+                Toast.LENGTH_SHORT
+            ).show()
+
+            404 -> Toast.makeText(requireContext(), "Сервер табылмады (404)", Toast.LENGTH_SHORT)
+                .show()
+
             else -> Toast.makeText(requireContext(), "Қате: $code", Toast.LENGTH_SHORT).show()
         }
     }
+
     private fun createUserPost(username: String) {
         CoroutineScope(Dispatchers.IO).launch {
             try {

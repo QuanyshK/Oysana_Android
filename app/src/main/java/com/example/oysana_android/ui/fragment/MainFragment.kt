@@ -43,7 +43,10 @@ class MainFragment : Fragment(R.layout.fragment_main) {
             val bundle = Bundle().apply {
                 putInt("courseId", course.id)
             }
-            findNavController().navigate(R.id.action_mainFragment_to_trialCourseDetailsFragment, bundle)
+            findNavController().navigate(
+                R.id.action_mainFragment_to_trialCourseDetailsFragment,
+                bundle
+            )
         }
         binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
         binding.recyclerView.adapter = courseAdapter

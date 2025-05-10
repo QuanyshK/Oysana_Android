@@ -33,6 +33,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="16dp">
+
             <TextView
                 android:id="@+id/tvCourseTitle"
                 android:layout_width="wrap_content"
@@ -41,23 +42,24 @@
                 android:text="Курс атауы"
                 android:textColor="@color/black"
                 android:textSize="24sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
+
             <com.google.android.material.divider.MaterialDivider
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:dividerColor="@color/primary_blue"
                 android:layout_marginTop="4dp
-"/>
+"
+                app:dividerColor="@color/primary_blue" />
 
             <TextView
                 android:id="@+id/tvTopics"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="18dp"
                 android:layout_gravity="center"
+                android:layout_marginTop="18dp"
                 android:text="Тақырыптар тізімі"
                 android:textColor="@color/primary_blue"
-                android:textSize="18sp"/>
+                android:textSize="18sp" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerView"

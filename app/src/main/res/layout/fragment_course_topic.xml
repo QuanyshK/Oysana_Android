@@ -46,24 +46,24 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Дайынсың ба?"
             android:layout_gravity="center"
             android:layout_marginTop="60dp"
-            android:textSize="18dp"
-            android:textColor="@color/black"/>
+            android:text="Дайынсың ба?"
+            android:textColor="@color/black"
+            android:textSize="18dp" />
         <!-- Кнопка перехода к тесту (Next) -->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnStartTest"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
             android:layout_gravity="center"
-            android:text="Тестті бастау"
-            app:icon="@drawable/start"
-            app:iconSize="24dp"
-            app:backgroundTint="@null"
+            android:layout_marginTop="16dp"
             android:background="@drawable/btn_gradient_send"
-            android:textColor="@color/white"/>
+            android:text="Тестті бастау"
+            android:textColor="@color/white"
+            app:backgroundTint="@null"
+            app:icon="@drawable/start"
+            app:iconSize="24dp" />
 
     </LinearLayout>
 </LinearLayout>

@@ -23,7 +23,8 @@ class CourseAdapter(
         holder.bind(getItem(position))
     }
 
-    inner class CourseViewHolder(private val binding: ItemCourseBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class CourseViewHolder(private val binding: ItemCourseBinding) :
+        RecyclerView.ViewHolder(binding.root) {
         fun bind(course: Course) {
             val BASE_URL = Constants.BASE_URL
             binding.tvCourseTitle.text = course.title
@@ -39,6 +40,7 @@ class CourseAdapter(
             }
         }
     }
+
     class CourseDiffCallback : DiffUtil.ItemCallback<Course>() {
         override fun areItemsTheSame(oldItem: Course, newItem: Course): Boolean =
             oldItem.id == newItem.id

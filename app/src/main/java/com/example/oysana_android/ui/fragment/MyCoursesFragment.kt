@@ -47,7 +47,10 @@ class MyCoursesFragment : Fragment(R.layout.fragment_my_courses) {
                 putInt("courseId", course.id)
                 putString("courseTitle", course.title)
             }
-            findNavController().navigate(R.id.action_myCoursesFragment_to_courseDetailsFragment, bundle)
+            findNavController().navigate(
+                R.id.action_myCoursesFragment_to_courseDetailsFragment,
+                bundle
+            )
         }
         binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
         binding.recyclerView.adapter = adapter
@@ -62,7 +65,8 @@ class MyCoursesFragment : Fragment(R.layout.fragment_my_courses) {
                     if (!courses.isNullOrEmpty()) {
                         adapter.submitList(courses)
                     }
-                } else { }
+                } else {
+                }
             } catch (e: Exception) {
             }
         }

@@ -18,12 +18,12 @@ object AIClient {
             .readTimeout(60, java.util.concurrent.TimeUnit.SECONDS)
             .writeTimeout(60, java.util.concurrent.TimeUnit.SECONDS)
             .addInterceptor { chain ->
-            val original = chain.request()
-            val requestWithHeader = original.newBuilder()
-                .addHeader("X-Username", username ?: "")
-                .build()
-            chain.proceed(requestWithHeader)
-        }.build()
+                val original = chain.request()
+                val requestWithHeader = original.newBuilder()
+                    .addHeader("X-Username", username ?: "")
+                    .build()
+                chain.proceed(requestWithHeader)
+            }.build()
 
         return Retrofit.Builder()
             .baseUrl(Constants.BASE_URL_AI)

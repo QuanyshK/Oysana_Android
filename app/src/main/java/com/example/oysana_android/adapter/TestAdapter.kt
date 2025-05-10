@@ -31,14 +31,32 @@ class TestAdapter(
             if (isResultVisible) {
                 when {
                     answer.id == correctAnswerId && answer.id == selectedAnswerId -> {
-                        binding.radioAnswer.setBackgroundColor(ContextCompat.getColor(context, R.color.correct_green))
+                        binding.radioAnswer.setBackgroundColor(
+                            ContextCompat.getColor(
+                                context,
+                                R.color.correct_green
+                            )
+                        )
                     }
+
                     answer.id == selectedAnswerId && answer.id != correctAnswerId -> {
-                        binding.radioAnswer.setBackgroundColor(ContextCompat.getColor(context, R.color.wrong_red))
+                        binding.radioAnswer.setBackgroundColor(
+                            ContextCompat.getColor(
+                                context,
+                                R.color.wrong_red
+                            )
+                        )
                     }
+
                     answer.id == correctAnswerId -> {
-                        binding.radioAnswer.setBackgroundColor(ContextCompat.getColor(context, R.color.correct_green))
+                        binding.radioAnswer.setBackgroundColor(
+                            ContextCompat.getColor(
+                                context,
+                                R.color.correct_green
+                            )
+                        )
                     }
+
                     else -> {
                         binding.radioAnswer.setBackgroundColor(Color.TRANSPARENT)
                     }

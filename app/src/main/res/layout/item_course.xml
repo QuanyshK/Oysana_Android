@@ -11,20 +11,20 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="12dp"
+        android:background="@color/white"
         android:gravity="center_vertical"
-        android:background="@color/white">
+        android:orientation="horizontal"
+        android:padding="12dp">
 
         <ImageView
             android:id="@+id/imgCourseCover"
             android:layout_width="72dp"
             android:layout_height="72dp"
             android:layout_marginEnd="12dp"
-            android:scaleType="centerCrop"
             android:background="@drawable/image_rounded_background"
             android:clipToOutline="true"
-            android:contentDescription="Курс суреті" />
+            android:contentDescription="Курс суреті"
+            android:scaleType="centerCrop" />
 
         <LinearLayout
             android:layout_width="0dp"
@@ -36,12 +36,12 @@
                 android:id="@+id/tvCourseTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="2"
                 android:text="Курс атауы"
                 android:textColor="@color/black"
                 android:textSize="16sp"
-                android:textStyle="bold"
-                android:maxLines="2"
-                android:ellipsize="end" />
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/tvCourseDescription"
@@ -50,8 +50,7 @@
                 android:layout_marginTop="4dp"
                 android:text="Курс сипаттамасы..."
                 android:textColor="@color/black"
-                android:textSize="14sp"
- />
+                android:textSize="14sp" />
         </LinearLayout>
     </LinearLayout>
 </androidx.cardview.widget.CardView>

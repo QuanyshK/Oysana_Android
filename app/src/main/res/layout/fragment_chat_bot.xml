@@ -2,23 +2,24 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/background_light">
+    android:background="@color/background_light"
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
         android:elevation="4dp"
-        android:padding="16dp"
         android:gravity="center"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:padding="12dp">
 
         <ImageView
             android:layout_width="32dp"
             android:layout_height="32dp"
-            android:src="@drawable/bot"
-            android:layout_margin="5dp"/>
+            android:layout_margin="5dp"
+            android:src="@drawable/bot" />
+
         <TextView
             android:id="@+id/tvPageTitle"
             android:layout_width="wrap_content"
@@ -34,19 +35,18 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:padding="8dp"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         android:clipToPadding="false"
-        android:overScrollMode="never" />
+        android:overScrollMode="never"
+        android:padding="8dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:background="@color/white"
         android:elevation="6dp"
         android:gravity="center"
->
+        android:orientation="horizontal">
 
         <EditText
             android:id="@+id/editTextMessage"
@@ -55,19 +55,19 @@
             android:layout_weight="1"
             android:background="@drawable/edittext_background"
             android:hint="@string/ask"
+            android:imeOptions="actionSend"
             android:padding="12dp"
             android:textColor="@android:color/black"
-            android:textColorHint="@android:color/darker_gray"
-            android:imeOptions="actionSend" />
+            android:textColorHint="@android:color/darker_gray" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/buttonSend"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:contentDescription="@string/send"
+            app:backgroundTint="@color/primary_blue"
             app:srcCompat="@drawable/send"
             app:tint="@color/white"
-            app:backgroundTint="@color/primary_blue"
             app:useCompatPadding="true" />
     </LinearLayout>
 </LinearLayout>

@@ -65,7 +65,6 @@
             android:textSize="16sp"
             android:textStyle="bold" />
 
-        <!-- Список ответов -->
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerViewAnswers"
             android:layout_width="match_parent"
@@ -75,7 +74,6 @@
             android:overScrollMode="never"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
-        <!-- Кнопки навигации -->
         <LinearLayout
             android:id="@+id/navigationButtonsContainer"
             android:layout_width="match_parent"

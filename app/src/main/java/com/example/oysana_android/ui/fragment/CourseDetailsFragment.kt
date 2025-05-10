@@ -56,7 +56,10 @@ class CourseDetailsFragment : Fragment(R.layout.fragment_course_details) {
                 putInt("topicId", topic.id)
                 putString("topicTitle", topic.title)
             }
-            findNavController().navigate(R.id.action_courseDetailsFragment_to_courseTopicFragment, bundle)
+            findNavController().navigate(
+                R.id.action_courseDetailsFragment_to_courseTopicFragment,
+                bundle
+            )
         }
         binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
         binding.recyclerView.adapter = topicAdapter

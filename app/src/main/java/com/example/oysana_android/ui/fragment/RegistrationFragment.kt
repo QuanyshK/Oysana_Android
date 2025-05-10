@@ -42,7 +42,8 @@ class RegistrationFragment : Fragment(R.layout.fragment_registration) {
             "Химия және Биология",
             "Химия және Физика"
         )
-        val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, subjectPairs)
+        val adapter =
+            ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, subjectPairs)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         binding.spinnerPair.adapter = adapter
 
@@ -52,7 +53,8 @@ class RegistrationFragment : Fragment(R.layout.fragment_registration) {
             val pair = binding.spinnerPair.selectedItem?.toString()?.trim().orEmpty()
 
             if (name.isEmpty() || phone.isEmpty() || pair.isEmpty()) {
-                Toast.makeText(requireContext(), "Барлық өрістерді толтырыңыз", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "Барлық өрістерді толтырыңыз", Toast.LENGTH_SHORT)
+                    .show()
                 return@setOnClickListener
             }
 
@@ -61,10 +63,15 @@ class RegistrationFragment : Fragment(R.layout.fragment_registration) {
                 try {
                     val response = apiService.registerLead(request)
                     if (response.isSuccessful) {
-                        Toast.makeText(requireContext(), "Өтініш қабылданды!", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(requireContext(), "Өтініш қабылданды!", Toast.LENGTH_SHORT)
+                            .show()
                         findNavController().popBackStack()
                     } else {
-                        Toast.makeText(requireContext(), "Қате: ${response.code()}", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(
+                            requireContext(),
+                            "Қате: ${response.code()}",
+                            Toast.LENGTH_SHORT
+                        ).show()
                     }
                 } catch (e: Exception) {
                 }

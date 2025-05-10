@@ -74,7 +74,8 @@ class TrialCourseDetailsFragment : Fragment(R.layout.fragment_trial_course_detai
                         val firstVideo = topics.firstOrNull { it.videoUrl != null && it.isUnlocked }
                         setupYouTube(firstVideo?.videoUrl)
                     } else {
-                        Toast.makeText(requireContext(), "Сабақтар табылмады", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(requireContext(), "Сабақтар табылмады", Toast.LENGTH_SHORT)
+                            .show()
                     }
                 } else {
                 }

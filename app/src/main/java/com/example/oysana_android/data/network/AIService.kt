@@ -9,6 +9,7 @@ interface AIService {
 
     @GET("api/me/")
     suspend fun getCurrentUser(): Response<Any>
+
     @POST("api/users/create/")
     suspend fun createUser(
         @Body body: Map<String, String>

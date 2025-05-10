@@ -91,7 +91,8 @@ class TestFragment : Fragment(R.layout.fragment_test) {
                         displayQuestion()
                     }
                 } else {
-                    Toast.makeText(requireContext(), "Қате: ${response.code()}", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), "Қате: ${response.code()}", Toast.LENGTH_SHORT)
+                        .show()
                 }
             } catch (e: Exception) {
                 Toast.makeText(requireContext(), "Интернетке қосылыңыз", Toast.LENGTH_SHORT).show()
@@ -103,7 +104,11 @@ class TestFragment : Fragment(R.layout.fragment_test) {
         binding.questionNavContainer.removeAllViews()
 
         questions.forEachIndexed { index, question ->
-            val button = MaterialButton(requireContext(), null, com.google.android.material.R.attr.materialButtonOutlinedStyle).apply {
+            val button = MaterialButton(
+                requireContext(),
+                null,
+                com.google.android.material.R.attr.materialButtonOutlinedStyle
+            ).apply {
                 text = "${index + 1}"
                 setPadding(24, 12, 24, 12)
                 strokeWidth = 2
@@ -116,12 +121,24 @@ class TestFragment : Fragment(R.layout.fragment_test) {
                         setBackgroundColor(ContextCompat.getColor(context, R.color.primary_blue))
                         setTextColor(ContextCompat.getColor(context, android.R.color.white))
                     }
+
                     userAnswers.containsKey(question.id) -> {
-                        setBackgroundColor(ContextCompat.getColor(context, R.color.background_light))
+                        setBackgroundColor(
+                            ContextCompat.getColor(
+                                context,
+                                R.color.background_light
+                            )
+                        )
                         setTextColor(ContextCompat.getColor(context, android.R.color.black))
                     }
+
                     else -> {
-                        setBackgroundColor(ContextCompat.getColor(context, android.R.color.transparent))
+                        setBackgroundColor(
+                            ContextCompat.getColor(
+                                context,
+                                android.R.color.transparent
+                            )
+                        )
                     }
                 }
 
@@ -160,7 +177,8 @@ class TestFragment : Fragment(R.layout.fragment_test) {
             correct
         ) { answerId ->
             userAnswers[question.id] = answerId
-            binding.btnFinish.visibility = if (userAnswers.size == questions.size && !showResult) View.VISIBLE else View.GONE
+            binding.btnFinish.visibility =
+                if (userAnswers.size == questions.size && !showResult) View.VISIBLE else View.GONE
         }
 
         binding.recyclerViewAnswers.adapter = adapter
@@ -182,7 +200,11 @@ class TestFragment : Fragment(R.layout.fragment_test) {
                         testPassed = it.passed
                         testScore = it.score
                         answerDetails = it.answersDetail
-                        Toast.makeText(requireContext(), "Сіз $testScore/${questions.size} жинадыңыз", Toast.LENGTH_LONG).show()
+                        Toast.makeText(
+                            requireContext(),
+                            "Сіз $testScore/${questions.size} жинадыңыз",
+                            Toast.LENGTH_LONG
+                        ).show()
                         displayQuestion()
                     }
                 } else {

@@ -108,7 +108,6 @@ class ChatBotFragment : Fragment(R.layout.fragment_chat_bot) {
     }
 
 
-
     private fun sendChatMessage(message: String) {
         val userMessage = ChatMessageResponse(
             user_message = message,
@@ -139,7 +138,6 @@ class ChatBotFragment : Fragment(R.layout.fragment_chat_bot) {
             }
         }
     }
-
 
 
     private fun scrollToBottom() {
