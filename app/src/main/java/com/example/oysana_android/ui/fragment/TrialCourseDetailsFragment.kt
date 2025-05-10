@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import com.example.oysana_android.R
 import com.example.oysana_android.adapter.TopicAdapter
 import com.example.oysana_android.data.model.Topic
@@ -41,8 +42,7 @@ class TrialCourseDetailsFragment : Fragment(R.layout.fragment_trial_course_detai
         setupRecyclerView()
 
         binding.btnBuySubscriptionTrial.setOnClickListener {
-            val uri = Uri.parse(getString(R.string.web_home))
-            startActivity(Intent(Intent.ACTION_VIEW, uri))
+            findNavController().navigate(R.id.registrationFragment)
         }
 
         binding.btnBack.setOnClickListener {
