@@ -5,32 +5,41 @@
     android:layout_height="match_parent"
     android:background="@color/background_light">
 
-    <!-- Один корневой LinearLayout -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:paddingBottom="24dp">
 
-        <!-- Верхняя панель: Профиль и выход -->
+        <!-- Header with custom profile icon, title and logout -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
             android:background="@color/white"
             android:elevation="2dp"
-            android:gravity="center_vertical"
             android:orientation="horizontal"
-            android:paddingHorizontal="8dp"
+            android:gravity="center_vertical"
+            android:paddingStart="16dp"
+            android:paddingEnd="8dp"
             android:paddingTop="12dp"
             android:paddingBottom="4dp">
+
+            <!-- Placeholder for custom SVG/XML profile icon -->
+            <ImageView
+                android:id="@+id/ivProfileIcon"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/home"
+                android:contentDescription="profile icon"
+                app:tint="@color/primary_blue"
+                android:layout_marginEnd="12dp" />
 
             <TextView
                 android:id="@+id/tvProfileTitle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:padding="8dp"
-                android:text="👤 Профиль"
+                android:text="Профиль"
                 android:textColor="@color/black"
                 android:textSize="20sp"
                 android:textStyle="bold" />
@@ -46,73 +55,101 @@
                 app:tint="@color/primary_blue" />
         </LinearLayout>
 
-        <!-- Контент профиля -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="16dp">
+            android:padding="16dp"
+            android:layout_marginTop="36dp">
 
-            <LinearLayout
+            <!-- User card with avatar and name -->
+            <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/bg_card_rounded"
-                android:orientation="horizontal"
-                android:padding="12dp">
+                android:layout_marginBottom="24dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="6dp"
+                app:strokeColor="@color/primary_blue"
+                app:strokeWidth="2dp">
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="16dp"
+                    android:background="@color/text_light">
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/ivAvatar"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:src="@drawable/user"
+                        android:layout_marginEnd="12dp" />
 
                     <TextView
                         android:id="@+id/tvUserName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:text="Аты-жөні"
                         android:textColor="@color/black"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/shantell_light" />
                 </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Buttons row: Trial Test and Support -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginBottom="24dp">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnTrialTest"
+                    style="@style/Widget.MaterialComponents.Button"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="8dp"
+                    android:text="Cынақ тесті"
+                    android:textAllCaps="true"
+                    android:fontFamily="@font/shantell_light"
+                    android:background="@drawable/btn_gradient_send"
+                    app:backgroundTint="@null"
+                    app:cornerRadius="50dp"
+                    android:textColor="@android:color/white" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnSupport"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="8dp"
+                    app:icon="@drawable/support"
+                    app:iconSize="40dp"
+                    android:text="Қолдау қызметі"
+                    android:textAllCaps="false"
+                    android:fontFamily="@font/roboto_mono"
+                    app:strokeColor="@color/primary_blue"
+                    app:strokeWidth="1dp"
+                    android:textColor="@color/primary_blue" />
             </LinearLayout>
 
-            <!-- Кнопка: Пробный тест -->
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnTrialTest"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:background="@drawable/edittext_background"
-                android:text="Cынақ тесті"
-                android:textColor="@android:color/black"
-                app:backgroundTint="@null"
-                app:cornerRadius="100dp"
-                app:iconPadding="8dp"
-                app:iconTint="@android:color/white" />
-
-            <!-- Кнопка: Служба поддержки -->
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnSupport"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:background="@drawable/edittext_background"
-                android:text="Қолдау қызметі"
-                android:textColor="@android:color/black"
-                app:backgroundTint="@null"
-                app:cornerRadius="100dp"
-                app:iconPadding="8dp"
-                app:iconTint="@android:color/white" />
-
-            <!-- Версия -->
-            <TextView
-                android:id="@+id/tvAppVersion"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="24dp"
-                android:text="⭐ Version 1.0.0"
-                android:textColor="@android:color/darker_gray"
-                android:textStyle="bold" />
         </LinearLayout>
+        <TextView
+            android:id="@+id/tvAppVersion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="⭐ Version 1.0.0"
+            android:textColor="@color/muted_grey"
+            android:textSize="14sp"
+            android:fontFamily="@font/roboto_mono" />
     </LinearLayout>
+
+
 </ScrollView>

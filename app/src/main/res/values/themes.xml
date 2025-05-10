@@ -5,6 +5,11 @@
         <item name="colorPrimaryVariant">@color/primary_blue</item>
         <item name="colorOnPrimary">@color/text_light</item>
         <item name="android:fontFamily">@font/shantell_light</item>
-
+        <item name="colorSecondary">@color/secondary_green</item>
+        <item name="colorOnSecondary">@android:color/white</item>
+    </style>
+    <style name="ShapeAppearance.App.CircleImage" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
     </style>
 </resources>

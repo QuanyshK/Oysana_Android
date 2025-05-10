@@ -1,80 +1,78 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background_light"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/background_light">
 
-    <!-- Заголовок -->
+    <!-- Заголовок с градиентом и тенью -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
         android:elevation="4dp"
-        android:orientation="vertical"
-        android:padding="16dp">
+        android:padding="16dp"
+        android:gravity="center"
+        android:orientation="horizontal">
 
+        <ImageView
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:src="@drawable/bot"
+            android:layout_margin="5dp"/>
         <TextView
             android:id="@+id/tvPageTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="🤖 AI-көмекші"
+            android:text="@string/ai"
             android:textColor="@color/black"
             android:textSize="20sp"
             android:textStyle="bold" />
     </LinearLayout>
 
-    <!-- Основная часть: чат и поле ввода -->
-    <LinearLayout
+    <!-- RecyclerView для сообщений -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewChat"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:orientation="vertical"
-        android:padding="12dp">
+        android:padding="8dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:clipToPadding="false"
+        android:overScrollMode="never" />
 
-        <!-- Чат -->
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerViewChat"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:padding="5dp"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+    <!-- Поле ввода с кнопкой отправки -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/white"
+        android:elevation="6dp"
+        android:gravity="center"
+        android:padding="8dp">
 
-        <!-- Ввод сообщения -->
-        <LinearLayout
-            android:layout_width="match_parent"
+        <EditText
+            android:id="@+id/editTextMessage"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:background="@color/white"
-            android:elevation="6dp"
-            android:orientation="horizontal"
-            android:padding="8dp">
+            android:layout_weight="1"
+            android:background="@drawable/edittext_background"
+            android:hint="@string/ask"
+            android:padding="12dp"
+            android:fontFamily="@font/roboto_mono"
+            android:textColor="@android:color/black"
+            android:textColorHint="@android:color/darker_gray"
+            android:imeOptions="actionSend"
+            android:maxLines="4" />
 
-            <EditText
-                android:id="@+id/editTextMessage"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@drawable/edittext_background"
-                android:hint="Хабарлама енгізіңіз..."
-                android:padding="12dp"
-                android:textColor="@android:color/black"
-                android:textColorHint="@android:color/darker_gray" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/buttonSend"
-                style="@style/Widget.MaterialComponents.Button.TextButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:backgroundTint="@color/primary_blue"
-                android:paddingHorizontal="16dp"
-                android:text="Жіберу"
-                android:textColor="@android:color/white"
-                app:cornerRadius="12dp" />
-        </LinearLayout>
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/buttonSend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/send"
+            app:srcCompat="@drawable/send"
+            app:tint="@color/white"
+            app:backgroundTint="@color/primary_blue"
+            app:useCompatPadding="true" />
     </LinearLayout>
 </LinearLayout>

@@ -42,13 +42,28 @@
                 android:layout_width="match_parent"
                 android:layout_height="200dp" />
         </FrameLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Дайынсың ба?"
+            android:layout_gravity="center"
+            android:layout_marginTop="60dp"
+            android:textSize="18dp"
+            android:textColor="@color/black"/>
         <!-- Кнопка перехода к тесту (Next) -->
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btnStartTest"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="Тестті бастау" />
+            android:layout_gravity="center"
+            android:text="Тестті бастау"
+            app:icon="@drawable/start"
+            app:iconSize="24dp"
+            app:backgroundTint="@null"
+            android:background="@drawable/btn_gradient_send"
+            android:textColor="@color/white"/>
 
     </LinearLayout>
 </LinearLayout>

@@ -14,7 +14,7 @@ import com.example.oysana_android.data.model.ChatMessageResponse
 import com.example.oysana_android.data.network.AIClient
 import com.example.oysana_android.data.network.AIService
 import com.example.oysana_android.databinding.FragmentChatBotBinding
-import com.example.oysana_android.ui.adapter.ChatAdapter
+import com.example.oysana_android.adapter.ChatAdapter
 import kotlinx.coroutines.launch
 
 class ChatBotFragment : Fragment(R.layout.fragment_chat_bot) {

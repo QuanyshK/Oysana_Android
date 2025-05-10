@@ -6,4 +6,14 @@
     <string name="web_home">https://oysana-edu.kz/home</string>
     <string name="trial_test">https://www.youtube.com/watch?v=dQw4w9WgXcQ</string>
     <string name="support">https://wa.me/77752575991</string>
+    <string name="send">send</string>
+    <string name="ask">Хабарлама енгізіңіз...</string>
+    <string name="ai">AI-көмекші</string>
+    <string name="all_courses">Барлық курстар</string>
+    <string name="buy_course">Курсты сатып алу</string>
+    <string name="topic_name">Тақырып атауы</string>
+    <string name="blocked">(бұғатталған)</string>
+    <string name="register">Курсқа тіркелу</string>
+    <string name="my_courses">Менің курстарым</string>
+    <string name="my_courses_icon">my_courses_icon</string>
 </resources>

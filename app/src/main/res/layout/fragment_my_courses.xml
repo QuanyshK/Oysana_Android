@@ -11,15 +11,23 @@
         android:layout_height="wrap_content"
         android:background="@color/white"
         android:elevation="4dp"
-        android:orientation="vertical"
+        android:orientation="horizontal"
+        android:gravity="center"
         android:padding="16dp">
+        <ImageView
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:contentDescription="@string/my_courses_icon"
+            android:src="@drawable/my_courses"
+            android:layout_marginEnd="5dp">
 
+        </ImageView>
         <TextView
             android:id="@+id/tvPageTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="📘 Менің курстарым"
+            android:text="@string/my_courses"
             android:textColor="@color/black"
             android:textSize="20sp"
             android:textStyle="bold" />

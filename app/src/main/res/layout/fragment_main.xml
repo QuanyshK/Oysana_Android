@@ -11,15 +11,21 @@
         android:layout_height="wrap_content"
         android:background="@color/white"
         android:elevation="4dp"
-        android:orientation="vertical"
-        android:padding="16dp">
-
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:padding="16dp"
+        android:layout_margin="0dp">
+        <ImageView
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:src="@drawable/main_page"
+            android:layout_marginEnd="16dp"/>
         <TextView
             android:id="@+id/tvMainTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="🏠 Басты бет"
+            android:text="Басты бет"
             android:textColor="@color/black"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -30,31 +36,40 @@
         android:layout_height="wrap_content"
         android:elevation="4dp"
         android:orientation="vertical"
-        android:padding="16dp">
+        android:padding="0dp">
 
         <TextView
             android:id="@+id/tvAllCourses"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:layout_marginTop="16dp"
-            android:text="Барлық курстар"
-            android:textColor="@color/black" />
+            android:padding="10dp"
+            android:text="@string/all_courses"
+            android:textColor="@color/primary_blue"
+            android:fontFamily="@font/shantell_light"
+            android:layout_gravity="center"
+            android:textSize="20sp" />
 
+        <com.google.android.material.divider.MaterialDivider
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:dividerColor="@color/primary_blue"
+            android:layout_margin="16dp"/>
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
         <Button
-
             android:id="@+id/btnBuySubscription"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="16dp"
-            android:background="@drawable/btn_gradient_send"
-            android:text="Курсты сатып алу"
-            android:textColor="@android:color/white"
+            android:background="@drawable/header_gradient"
+            android:text="@string/buy_course"
+            android:textColor="@color/white"
             app:backgroundTint="@null" />
     </LinearLayout>
 

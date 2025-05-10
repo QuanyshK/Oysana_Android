@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
+    <color name="black">#16476D</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="background_light">#DCF6FB</color>
-    <color name="primary_blue">#1B5DF2</color>
+    <color name="background_light">#E7F5F8</color>
+    <color name="primary_blue">#3683E9</color>
     <color name="text_dark">#212121</color>
     <color name="text_light">#FFFFFF</color>
     <color name="inputBackground">#E6F7FF</color>
     <color name="system_bar_dark">#2C2C2C</color>
     <color name="correct_green">#C8E6C9</color>
     <color name="wrong_red">#FFCDD2</color>
+    <color name="secondary_green">#89E6B2</color>
+    <color name="input_background">#FFFFFF</color>
+    <color name="muted_grey">#9CA3AF</color>
+    <color name="yellow">#ABFFE259</color>
 </resources>

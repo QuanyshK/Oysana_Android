@@ -1,104 +1,145 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:gravity="center"
-    android:padding="16dp"
+    android:padding="32dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background_light"
-    >
-    <ImageView
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:src="@mipmap/ic_logo"
-        android:background="@drawable/rounded_logo"
-        android:scaleType="centerCrop"
-        android:clipToOutline="true"
-        android:layout_marginBottom="16dp"/>
+    android:background="@color/background_light">
+
+    <!-- В вашем layout -->
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginBottom="48dp"
+        android:clickable="true"
+        android:focusable="true"
+        app:cardCornerRadius="30dp"
+        app:cardElevation="8dp"
+        app:strokeColor="@color/primary_blue"
+        app:strokeWidth="3dp"
+        android:foreground="?attr/selectableItemBackgroundBorderless">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@mipmap/ic_logo"
+            android:scaleType="centerCrop"
+            app:shapeAppearanceOverlay="@style/ShapeAppearance.App.CircleImage" />
+
+    </com.google.android.material.card.MaterialCardView>
 
 
-
-
-    <EditText
-        android:id="@+id/etUsername"
+    <!-- Логин -->
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Логин енгізіңіз"
-        android:background="@drawable/edittext_background"
-        android:padding="12dp"
-        android:textColor="@android:color/black"
-        android:textColorHint="@android:color/darker_gray"
-        android:fontFamily="@font/roboto_mono"/>
+        app:boxStrokeColor="@color/primary_blue"
+        app:boxStrokeWidthFocused="2dp"
+        app:boxCornerRadiusTopStart="8dp"
+        app:boxCornerRadiusTopEnd="8dp"
+        app:boxCornerRadiusBottomStart="8dp"
+        app:boxCornerRadiusBottomEnd="8dp">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etUsername"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_mono"
+            android:backgroundTint="@color/input_background"
+            app:hintTextColor="@color/muted_grey"/>
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <EditText
-        android:layout_marginTop="10dp"
-        android:id="@+id/etPassword"
+    <View android:layout_width="match_parent" android:layout_height="12dp"/>
+
+    <!-- Пароль -->
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Құпиясөзді енгізіңіз"
-        android:inputType="textPassword"
-        android:background="@drawable/edittext_background"
-        android:padding="12dp"
-        android:textColor="@android:color/black"
-        android:textColorHint="@android:color/darker_gray"
-        android:fontFamily="@font/shantell_light"/>
+        app:boxStrokeColor="@color/primary_blue"
+        app:boxStrokeWidthFocused="2dp"
+        app:boxCornerRadiusTopStart="8dp"
+        app:boxCornerRadiusTopEnd="8dp"
+        app:boxCornerRadiusBottomStart="8dp"
+        app:boxCornerRadiusBottomEnd="8dp">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:fontFamily="@font/roboto_mono"
+            android:backgroundTint="@color/input_background"
+            app:hintTextColor="@color/muted_grey"/>
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <Button
+    <!-- Кнопка Кіру -->
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btnLogin"
-        android:layout_width="match_parent"
+        style="@style/Widget.MaterialComponents.Button"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:text="Кіру"
-        android:layout_marginTop="16dp"/>
+        android:textAllCaps="true"
+        app:backgroundTint="@null"
+        android:background="@drawable/btn_gradient_send"
+        app:cornerRadius="8dp"
+        android:textColor="@android:color/white"/>
+
+    <!-- Забыл пароль -->
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnSupport"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
-        android:background="@drawable/bg_card_rounded"
         android:text="Құпиясөзді ұмыттыңыз ба?"
-        android:textColor="@android:color/black"
-        app:backgroundTint="@null"
-        app:cornerRadius="100dp"
-        app:iconTint="@android:color/white" />
+        android:textAllCaps="false"
+        android:fontFamily="@font/shantell_light"
+        android:backgroundTint="@android:color/transparent"
+        android:textColor="@color/primary_blue"/>
 
+    <!-- Instagram -->
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center_vertical"
-        android:layout_marginTop="6dp"
-        android:clickable="true"
-        android:focusable="true">
+        android:layout_marginTop="8dp">
 
         <ImageView
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:src="@drawable/instagram"
             android:contentDescription="Instagram"
-            android:layout_marginEnd="6dp" />
+            android:layout_marginEnd="6dp"/>
 
         <TextView
             android:id="@+id/tvInstagramLink"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@oysana_edu"
-            android:textColor="@color/primary_blue"
-            android:textSize="17sp"
-            android:fontFamily="sans-serif-medium"
-            android:layout_gravity="center"
-            />
+            android:fontFamily="@font/roboto_mono"
+            android:textSize="16sp"
+            android:textColor="@color/primary_blue"/>
     </LinearLayout>
 
-
-    <Button
+    <!-- Купить курс -->
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btnBuySubscriptionLogin"
-        android:layout_width="wrap_content"
+        style="@style/Widget.MaterialComponents.Button"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
         android:text="Курсты сатып алу"
-        android:layout_marginTop="8dp"
+        android:textAllCaps="false"
+        android:fontFamily="@font/shantell_light"
         android:background="@drawable/btn_gradient_send"
         android:textColor="@android:color/white"
         app:backgroundTint="@null"/>
-
 </LinearLayout>
