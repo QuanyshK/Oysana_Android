@@ -67,7 +67,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="16dp"
-            android:background="@drawable/header_gradient"
+            android:background="@drawable/btn_gradient_send"
             android:text="@string/buy_course"
             android:textColor="@color/white"
             app:backgroundTint="@null" />

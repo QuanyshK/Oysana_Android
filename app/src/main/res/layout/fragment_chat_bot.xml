@@ -5,7 +5,6 @@
     android:orientation="vertical"
     android:background="@color/background_light">
 
-    <!-- Заголовок с градиентом и тенью -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -30,7 +29,6 @@
             android:textStyle="bold" />
     </LinearLayout>
 
-    <!-- RecyclerView для сообщений -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewChat"
         android:layout_width="match_parent"
@@ -41,7 +39,6 @@
         android:clipToPadding="false"
         android:overScrollMode="never" />
 
-    <!-- Поле ввода с кнопкой отправки -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -49,7 +46,7 @@
         android:background="@color/white"
         android:elevation="6dp"
         android:gravity="center"
-        android:padding="8dp">
+>
 
         <EditText
             android:id="@+id/editTextMessage"
@@ -59,11 +56,9 @@
             android:background="@drawable/edittext_background"
             android:hint="@string/ask"
             android:padding="12dp"
-            android:fontFamily="@font/roboto_mono"
             android:textColor="@android:color/black"
             android:textColorHint="@android:color/darker_gray"
-            android:imeOptions="actionSend"
-            android:maxLines="4" />
+            android:imeOptions="actionSend" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/buttonSend"
