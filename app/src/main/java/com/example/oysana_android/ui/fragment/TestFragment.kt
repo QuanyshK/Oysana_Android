@@ -7,6 +7,7 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.ContextCompat
+import androidx.core.text.HtmlCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
@@ -110,7 +111,6 @@ class TestFragment : Fragment(R.layout.fragment_test) {
                 setTextColor(ContextCompat.getColor(context, R.color.primary_blue))
                 cornerRadius = 40
 
-                // Цвета в зависимости от состояния
                 when {
                     index == currentIndex -> {
                         setBackgroundColor(ContextCompat.getColor(context, R.color.primary_blue))
@@ -145,7 +145,8 @@ class TestFragment : Fragment(R.layout.fragment_test) {
 
     private fun displayQuestion() {
         val question = questions[currentIndex]
-        binding.tvQuestionText.text = question.text
+        val cleanText = question.text.replace(Regex("<[^>]*>"), "")
+        binding.tvQuestionText.text = cleanText
         val answers = answersMap[question.id] ?: listOf()
         val selected = userAnswers[question.id]
         val correct = answerDetails.find { it.questionId == question.id }?.let {

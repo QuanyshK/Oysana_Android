@@ -1,39 +1,58 @@
 package com.example.oysana_android.adapter
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
+import com.example.oysana_android.R
 import com.example.oysana_android.data.model.Answer
 import com.example.oysana_android.databinding.ItemTestBinding
 
 class TestAdapter(
     private var answers: List<Answer>,
-    private val selectedAnswerId: Int?,
+    private var selectedAnswerId: Int?,
     private val isResultVisible: Boolean,
     private val correctAnswerId: Int?,
     private val onAnswerSelected: (Int) -> Unit
 ) : RecyclerView.Adapter<TestAdapter.AnswerViewHolder>() {
 
-    inner class AnswerViewHolder(private val binding: ItemTestBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class AnswerViewHolder(private val binding: ItemTestBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+
         fun bind(answer: Answer) {
-            binding.radioAnswer.text = answer.text
+            val cleanText = answer.text.replace(Regex("<[^>]*>"), "")
+            binding.radioAnswer.text = cleanText
             binding.radioAnswer.isChecked = answer.id == selectedAnswerId
             binding.radioAnswer.isEnabled = !isResultVisible
 
+            val context = binding.radioAnswer.context
+
             if (isResultVisible) {
-                binding.radioAnswer.setBackgroundResource(
-                    when {
-                        answer.id == correctAnswerId && answer.id == selectedAnswerId -> android.R.color.holo_green_light
-                        answer.id == selectedAnswerId && answer.id != correctAnswerId -> android.R.color.holo_red_light
-                        else -> android.R.color.transparent
+                when {
+                    answer.id == correctAnswerId && answer.id == selectedAnswerId -> {
+                        binding.radioAnswer.setBackgroundColor(ContextCompat.getColor(context, R.color.correct_green))
                     }
-                )
+                    answer.id == selectedAnswerId && answer.id != correctAnswerId -> {
+                        binding.radioAnswer.setBackgroundColor(ContextCompat.getColor(context, R.color.wrong_red))
+                    }
+                    answer.id == correctAnswerId -> {
+                        binding.radioAnswer.setBackgroundColor(ContextCompat.getColor(context, R.color.correct_green))
+                    }
+                    else -> {
+                        binding.radioAnswer.setBackgroundColor(Color.TRANSPARENT)
+                    }
+                }
             } else {
-                binding.radioAnswer.setBackgroundResource(android.R.color.transparent)
+                binding.radioAnswer.setBackgroundColor(Color.TRANSPARENT)
             }
 
             binding.radioAnswer.setOnClickListener {
-                onAnswerSelected(answer.id)
+                if (!isResultVisible) {
+                    selectedAnswerId = answer.id
+                    onAnswerSelected(answer.id)
+                    notifyDataSetChanged()
+                }
             }
         }
     }
@@ -47,7 +66,7 @@ class TestAdapter(
         holder.bind(answers[position])
     }
 
-    override fun getItemCount() = answers.size
+    override fun getItemCount(): Int = answers.size
 
     fun updateAnswers(newAnswers: List<Answer>) {
         answers = newAnswers

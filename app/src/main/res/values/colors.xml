@@ -8,4 +8,6 @@
     <color name="text_light">#FFFFFF</color>
     <color name="inputBackground">#E6F7FF</color>
     <color name="system_bar_dark">#2C2C2C</color>
+    <color name="correct_green">#C8E6C9</color>
+    <color name="wrong_red">#FFCDD2</color>
 </resources>
