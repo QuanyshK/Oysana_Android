@@ -1,4 +1,4 @@
-package com.example.oysana_android.ui.adapter
+package com.example.oysana_android.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
