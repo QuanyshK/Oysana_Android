@@ -101,10 +101,8 @@ class ChatBotFragment : Fragment(R.layout.fragment_chat_bot) {
                     chatAdapter.submitList(messages.toList())
                     scrollToBottom()
                 } else {
-                    showError("Қате: ${response.code()}")
                 }
             } catch (e: Exception) {
-                showError("Серверге қосылу қатесі")
             }
         }
     }
@@ -124,7 +122,6 @@ class ChatBotFragment : Fragment(R.layout.fragment_chat_bot) {
         chatAdapter.submitList(messages.toList())
         scrollToBottom()
 
-        //Загружаем ответ от бота
         lifecycleScope.launch {
             try {
                 val response = aiService.createChat(ChatCreateRequest(message))
@@ -147,10 +144,11 @@ class ChatBotFragment : Fragment(R.layout.fragment_chat_bot) {
 
 
     private fun scrollToBottom() {
-        binding.recyclerViewChat.postDelayed({
-            binding.recyclerViewChat.scrollToPosition(messages.size - 1)
+        _binding?.recyclerViewChat?.postDelayed({
+            _binding?.recyclerViewChat?.scrollToPosition(messages.size - 1)
         }, 100)
     }
+
 
     private fun showError(message: String) {
         Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()

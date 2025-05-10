@@ -13,7 +13,11 @@ object AIClient {
         val authManager = AuthManager(context)
         val username = authManager.getUsername()
 
-        val client = OkHttpClient.Builder().addInterceptor { chain ->
+        val client = OkHttpClient.Builder()
+            .connectTimeout(30, java.util.concurrent.TimeUnit.SECONDS)
+            .readTimeout(60, java.util.concurrent.TimeUnit.SECONDS)
+            .writeTimeout(60, java.util.concurrent.TimeUnit.SECONDS)
+            .addInterceptor { chain ->
             val original = chain.request()
             val requestWithHeader = original.newBuilder()
                 .addHeader("X-Username", username ?: "")

@@ -91,7 +91,10 @@
         android:label="Профиль">
         <action
         android:id="@+id/action_profileFragment_to_loginFragment"
-        app:destination="@id/loginFragment" />
+        app:destination="@id/loginFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true"/>
     </fragment>
     <fragment
         android:id="@+id/registrationFragment"

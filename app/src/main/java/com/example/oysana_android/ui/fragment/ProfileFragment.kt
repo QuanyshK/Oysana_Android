@@ -3,6 +3,7 @@ package com.example.oysana_android.ui.fragment
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -62,13 +63,17 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
                 val response = withContext(Dispatchers.IO) { apiService.getCurrentUser() }
                 if (response.isSuccessful) {
                     val user = response.body()
-                    binding.tvUserName.text = user?.name ?: "Аты белгісіз"
+                    _binding?.tvUserName?.text = user?.name ?: "Аты белгісіз"
                 }
             } catch (e: HttpException) {
+                Log.e("ProfileFragment", "Ошибка: ${e.localizedMessage}")
                 showToast("Сервер қатесі")
+            } catch (e: Exception) {
+                Log.e("ProfileFragment", "Ошибка: ${e.localizedMessage}")
             }
         }
     }
+
 
     private fun showToast(text: String) {
         Toast.makeText(requireContext(), text, Toast.LENGTH_SHORT).show()
