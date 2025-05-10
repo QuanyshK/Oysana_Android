@@ -64,7 +64,6 @@ class MyCoursesFragment : Fragment(R.layout.fragment_my_courses) {
                     }
                 } else { }
             } catch (e: Exception) {
-                Toast.makeText(requireContext(), "Интернетке қосылыңыз", Toast.LENGTH_SHORT).show()
             }
         }
     }

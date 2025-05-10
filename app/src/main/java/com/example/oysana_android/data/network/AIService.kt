@@ -11,7 +11,7 @@ interface AIService {
     suspend fun getCurrentUser(): Response<Any>
     @POST("api/users/create/")
     suspend fun createUser(
-        @Body body: Map<String, String> // {"username": "your_username"}
+        @Body body: Map<String, String>
     ): Response<Any>
 
     @GET("api/chats/")

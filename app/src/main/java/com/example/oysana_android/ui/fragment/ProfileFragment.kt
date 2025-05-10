@@ -67,7 +67,6 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
                 }
             } catch (e: HttpException) {
                 Log.e("ProfileFragment", "Ошибка: ${e.localizedMessage}")
-                showToast("Сервер қатесі")
             } catch (e: Exception) {
                 Log.e("ProfileFragment", "Ошибка: ${e.localizedMessage}")
             }

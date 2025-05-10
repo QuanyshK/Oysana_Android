@@ -70,7 +70,6 @@ class CourseTopicFragment : Fragment(R.layout.fragment_course_topic) {
                         setupYouTube(it.videoUrl)
                     }
                 } else {
-                    Toast.makeText(requireContext(), "Қате: ${response.code()}", Toast.LENGTH_SHORT).show()
                 }
             } catch (e: Exception) {
             }

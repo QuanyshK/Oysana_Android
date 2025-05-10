@@ -52,7 +52,6 @@ class TrialCourseDetailsFragment : Fragment(R.layout.fragment_trial_course_detai
         if (courseId != -1) {
             loadFirstTopics()
         } else {
-            Toast.makeText(requireContext(), "Course ID табылмады", Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -78,10 +77,8 @@ class TrialCourseDetailsFragment : Fragment(R.layout.fragment_trial_course_detai
                         Toast.makeText(requireContext(), "Сабақтар табылмады", Toast.LENGTH_SHORT).show()
                     }
                 } else {
-                    Toast.makeText(requireContext(), "Қате: ${response.code()}", Toast.LENGTH_SHORT).show()
                 }
             } catch (e: Exception) {
-                Toast.makeText(requireContext(), "Қате: ${e.localizedMessage}", Toast.LENGTH_SHORT).show()
             }
         }
     }

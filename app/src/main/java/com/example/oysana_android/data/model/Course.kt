@@ -13,7 +13,7 @@ data class Course(
     val description: String,
 
     @SerializedName("course_type")
-    val courseType: String = "student", // только для студентов
+    val courseType: String = "student",
 
     @SerializedName("sub_type")
     val subType: String?,

@@ -19,5 +19,5 @@ data class UserTestResult(
     val passed: Boolean,
 
     @SerializedName("created_at")
-    val createdAt: String // ISO 8601
+    val createdAt: String
 )

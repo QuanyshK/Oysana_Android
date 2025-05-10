@@ -72,10 +72,8 @@ class CourseDetailsFragment : Fragment(R.layout.fragment_course_details) {
                         topicAdapter.submitList(topicList)
                     }
                 } else {
-                    Toast.makeText(requireContext(), "Қате: ${response.code()}", Toast.LENGTH_SHORT).show()
                 }
             } catch (e: Exception) {
-                Toast.makeText(requireContext(), "Интернетке қосылыңыз", Toast.LENGTH_SHORT).show()
             }
         }
     }

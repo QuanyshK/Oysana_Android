@@ -59,10 +59,8 @@ class MainFragment : Fragment(R.layout.fragment_main) {
                         courseAdapter.submitList(it)
                     }
                 } else {
-                    Toast.makeText(requireContext(), "Қате: ${response.code()}", Toast.LENGTH_SHORT).show()
                 }
             } catch (e: Exception) {
-                Toast.makeText(requireContext(), "Интернетке қосылыңыз", Toast.LENGTH_SHORT).show()
             }
         }
     }

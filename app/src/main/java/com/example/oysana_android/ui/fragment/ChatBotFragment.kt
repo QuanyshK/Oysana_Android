@@ -133,7 +133,6 @@ class ChatBotFragment : Fragment(R.layout.fragment_chat_bot) {
                         scrollToBottom()
                     }
                 } else {
-                    showError("Қате: ${response.code()}")
                 }
             } catch (e: Exception) {
                 showError("Жіберу қатесі")
