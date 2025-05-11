@@ -7,6 +7,7 @@ import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import com.example.oysana_android.BuildConfig
 import com.example.oysana_android.R
@@ -35,7 +36,15 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
 
         binding.btnLogoutSmall.setOnClickListener {
             authManager.clearTokens()
-            findNavController().navigate(R.id.action_profileFragment_to_loginFragment)
+            findNavController().navigate(
+                R.id.loginFragment,
+                null,
+                NavOptions.Builder()
+                    .setPopUpTo(R.id.mainFragment, false)
+                    .setLaunchSingleTop(true)
+                    .build()
+            )
+
         }
 
         binding.btnSupport.setOnClickListener {

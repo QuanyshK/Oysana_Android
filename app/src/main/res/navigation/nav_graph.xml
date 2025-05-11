@@ -6,7 +6,10 @@
     <action
         android:id="@+id/action_global_loginFragment"
         app:destination="@id/loginFragment"
-        app:launchSingleTop="true" />
+        app:launchSingleTop="true"
+        app:popUpTo="@id/mainFragment"
+        app:popUpToInclusive="false"
+        />
     <fragment
         android:id="@+id/mainFragment"
         android:name="com.example.oysana_android.ui.fragment.MainFragment"
@@ -81,8 +84,8 @@
             android:id="@+id/action_loginFragment_to_profileFragment"
             app:destination="@id/profileFragment"
             app:launchSingleTop="true"
-            app:popUpTo="@id/nav_graph"
-            app:popUpToInclusive="true" />
+            app:popUpTo="@id/mainFragment"
+            app:popUpToInclusive="false" />
     </fragment>
 
     <fragment
@@ -93,8 +96,8 @@
         android:id="@+id/action_profileFragment_to_loginFragment"
         app:destination="@id/loginFragment"
             app:launchSingleTop="true"
-            app:popUpTo="@id/nav_graph"
-            app:popUpToInclusive="true"/>
+            app:popUpTo="@id/mainFragment"
+            app:popUpToInclusive="false"/>
     </fragment>
     <fragment
         android:id="@+id/registrationFragment"

@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import com.example.oysana_android.R
@@ -63,28 +64,29 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
     }
 
     private fun loginUser(username: String, password: String) {
-        CoroutineScope(Dispatchers.Main).launch {
+        viewLifecycleOwner.lifecycleScope.launch {
             try {
                 val response = withContext(Dispatchers.IO) {
                     apiService.login(LoginRequest(username, password))
                 }
 
+                if (!isAdded) return@launch
+
                 if (response.isSuccessful && response.body() != null) {
                     val tokenResponse = response.body()!!
 
                     authManager.saveTokens(tokenResponse.access, tokenResponse.refresh)
-
                     authManager.saveUsername(username)
 
                     createUserPost(username)
 
-                    Toast.makeText(requireContext(), "Қош келдіңіз, $username!", Toast.LENGTH_SHORT)
-                        .show()
+                    Toast.makeText(requireContext(), "Қош келдіңіз, $username!", Toast.LENGTH_SHORT).show()
+
                     findNavController().navigate(
-                        R.id.action_loginFragment_to_profileFragment,
+                        R.id.profileFragment,
                         null,
                         NavOptions.Builder()
-                            .setPopUpTo(R.id.nav_graph, true)  // Очистить стек
+                            .setPopUpTo(R.id.mainFragment, false)
                             .setLaunchSingleTop(true)
                             .build()
                     )
@@ -92,12 +94,17 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                     handleLoginError(response.code())
                 }
             } catch (e: HttpException) {
-                Toast.makeText(requireContext(), "Сервер қатесі", Toast.LENGTH_SHORT).show()
+                if (isAdded) {
+                    Toast.makeText(requireContext(), "Сервер қатесі", Toast.LENGTH_SHORT).show()
+                }
             } catch (e: Exception) {
-                Toast.makeText(requireContext(), "Интернетке қосылыңыз", Toast.LENGTH_SHORT).show()
+                if (isAdded) {
+                    Toast.makeText(requireContext(), "Интернетке қосылыңыз", Toast.LENGTH_SHORT).show()
+                }
             }
         }
     }
+
 
     private fun handleLoginError(code: Int) {
         when (code) {
@@ -115,21 +122,23 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
     }
 
     private fun createUserPost(username: String) {
-        CoroutineScope(Dispatchers.IO).launch {
+        viewLifecycleOwner.lifecycleScope.launch {
             try {
-                val aiService = AIClient.create(requireContext())
+                val ctx = context ?: return@launch
+                val aiService = AIClient.create(ctx)
                 val response = aiService.createUser(mapOf("username" to username))
 
                 if (response.isSuccessful) {
-                    println("✅ Юзер создан или уже существует")
+                    println("✅Юзер бар")
                 } else {
-                    println("❌ Ошибка при создании: ${response.code()}")
+                    println("❌Қате: ${response.code()}")
                 }
             } catch (e: Exception) {
-                println("❌ Ошибка соединения: ${e.localizedMessage}")
+                println("❌Қате: ${e.localizedMessage}")
             }
         }
     }
+
 
 
     override fun onDestroyView() {
